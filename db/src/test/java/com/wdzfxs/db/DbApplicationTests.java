@@ -5,9 +5,11 @@ import com.wdzfxs.db.service.SpotifyService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
+import org.springframework.context.annotation.Import;
 
-@SpringBootTest("spring.datasource.url=jdbc:postgresql://localhost:5432/tinder")
+@DataJpaTest(properties = "spring.datasource.url=jdbc:postgresql://localhost:5432/tinder")
+@Import(value = SpotifyService.class)
 class DbApplicationTests {
 
     @Autowired
